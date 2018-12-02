@@ -127,6 +127,6 @@ export default {
     transition: all 1s;
   }
   .fade-enter, .fade-leave-to {
-    transform: translate(-50%, -300%);
+    transform: translate(-50%, -500px);
   }
 </style>

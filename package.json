@@ -1,11 +1,11 @@
 {
   "name": "z-message",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "lib/z-message.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --ENV=lib --target lib --name z-message ./src/index.js",
+    "build-lib": "vue-cli-service build --ENV=lib --target lib --name z-message ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

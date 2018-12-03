@@ -4,7 +4,7 @@ node_js:
  - "8"
 
 os:
- - windows
+ - linux
 
 stages:
  - name: deploy
@@ -16,7 +16,7 @@ jobs:
      script:
        - echo "NPM Deploying Started ..."
        - npm version
-       - npm run build-bundle
+       - npm run build-lib
        - echo "NPM Building-bundle Finished."
 
      deploy:

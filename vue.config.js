@@ -1,5 +1,4 @@
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
@@ -8,11 +7,13 @@ module.exports = {
   productionSourceMap: false,
   configureWebpack: {
     entry: {
-      app: './examples/main.js'
+      app: process.env.NODE_ENV === 'lib' ? './src' : './examples/main.js'
     },
-    externals: {
-      'vue': 'vue'
-    },
+    externals: process.env.NODE_ENV === 'lib'
+      ? {
+        'vue': 'vue'
+      }
+      : {},
     output: {
       filename: 'index.min.js',
       library: 'z-message',
@@ -24,32 +25,6 @@ module.exports = {
       alias: {
         '@': resolve('examples')
       }
-    },
-    module: {
-      rules: [
-        {
-          test: /(\.jsx|\.js)$/,
-          use: {
-            loader: 'babel-loader'
-          },
-          exclude: /node_modules/
-        },
-        { test: /\.vue$/, loader: 'vue-loader' },
-        {
-          test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            use: [
-              'css-loader',
-              'sass-loader',
-              'postcss-loader'
-            ],
-            fallback: 'vue-style-loader'
-          })
-        }
-      ]
-    },
-    plugins: [
-      new ExtractTextPlugin('index.css')
-    ]
+    }
   }
 }

@@ -2,6 +2,8 @@
 node_modules
 /dist
 /lib
+/build
+npm-shrinkwrap.json
 
 # local env files
 .env.local

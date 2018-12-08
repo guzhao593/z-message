@@ -1,6 +1,6 @@
 {
   "name": "z-message",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "lib/z-message.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",

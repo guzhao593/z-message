@@ -5,6 +5,9 @@ function resolve (dir) {
 module.exports = {
   outputDir: process.env.NODE_ENV === 'lib' ? 'dist' : 'lib',
   productionSourceMap: false,
+  css: {
+    extract: false
+  },
   configureWebpack: {
     entry: {
       app: process.env.NODE_ENV === 'lib' ? './src' : './examples/main.js'
@@ -15,9 +18,9 @@ module.exports = {
       }
       : {},
     output: {
-      filename: 'index.min.js',
+      filename: 'index.js',
       library: 'z-message',
-      libraryTarget: 'umd',
+      libraryTarget: 'commonjs2',
       umdNamedDefine: true
     },
     resolve: {
